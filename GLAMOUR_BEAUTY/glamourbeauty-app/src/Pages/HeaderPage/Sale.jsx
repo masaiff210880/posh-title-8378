@@ -8,7 +8,8 @@ const colors = [
   'https://logan.nnnow.com/content/dam/nnnow-project/08-feb-2023/se/ND_TopBannerdesktop.jpg',
   'https://logan.nnnow.com/content/dam/nnnow-project/22-feb-2023/DearDahlia_Topbannerdesktop(1).jpg',
   'https://logan.nnnow.com/content/dam/nnnow-project/14-feb-2023/DrDennis_HomePageBanner_Desktop.jpg',
-  'https://logan.nnnow.com/content/dam/nnnow-project/22-feb-2023/SC_Holidaycollection_HPBanner_Desktop(1).jpg'
+  'https://logan.nnnow.com/content/dam/nnnow-project/22-feb-2023/SC_Holidaycollection_HPBanner_Desktop(1).jpg',
+  'https://logan.nnnow.com/content/dam/nnnow-project/23-feb-2023/DearDahlia_OfferPageBanner_Desktop.jpg'
 ];
 const delay = 2500;
 const Sale = () => {

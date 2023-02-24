@@ -16,6 +16,7 @@ import Tool from '../Pages/HeaderPage/Tool';
 import Brands from '../Pages/HeaderPage/Brands';
 import Cart from '../Pages/HeaderPage/Cart';
 import Login from '../Pages/Login'
+import SingleProduct from '../Pages/HeaderPage/SingleProduct';
 const AllRoutes = () => {
   return (
     <div>
@@ -37,6 +38,7 @@ const AllRoutes = () => {
             <Route path='/brands' element={<Brands/>}/>
             <Route path='/cart' element={<Cart/>}/>
             <Route path='/login' element={<Login/>}/>
+            <Route path='/makeup/:id' element={<SingleProduct/>}/>
         </Routes>
     </div>
   )
