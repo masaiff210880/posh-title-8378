@@ -9,6 +9,7 @@ import {
   VisuallyHidden,
   chakra,
   useColorModeValue,
+  Image
 } from '@chakra-ui/react';
 import { FaTwitter, FaYoutube, FaInstagram } from 'react-icons/fa';
 const ListHeader = ({ children }) => {
@@ -77,7 +78,8 @@ export default function Footer() {
           </Stack>
 
           <Stack align={'flex-start'}>
-            <ListHeader>Install App</ListHeader>
+            <ListHeader>&nbsp;&nbsp;Install App</ListHeader>
+            <Image src='https://www.freepnglogos.com/uploads/app-store-logo-png/apple-app-store-travel-awards-globestamp-7.png' alt='AppStore' width='200px' />
           </Stack>
         </SimpleGrid>
       </Container>
