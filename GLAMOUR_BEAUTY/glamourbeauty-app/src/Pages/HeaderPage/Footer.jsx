@@ -79,7 +79,7 @@ export default function Footer() {
 
           <Stack align={'flex-start'}>
             <ListHeader>&nbsp;&nbsp;Install App</ListHeader>
-            <Image src='https://www.freepnglogos.com/uploads/app-store-logo-png/apple-app-store-travel-awards-globestamp-7.png' alt='AppStore' width='200px' />
+            <Image src='./images/AppStore.png' alt='AppStore' width='200px' />
           </Stack>
         </SimpleGrid>
       </Container>

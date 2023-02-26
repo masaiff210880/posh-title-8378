@@ -3,11 +3,15 @@ import { Container,Image,Box } from '@chakra-ui/react'
 import axios from 'axios'
 import MakeupItem from '../HeaderPage/MakeupItem';
 import Footer from './Footer';
+// import Pagination from './Pagination';
 const MakeUp = () => {
   const [makeUp,setMakeUp] = useState([]);
-  const fetchMakeUp=()=>{
+  const [totalPage,setTotalPage] = useState(0);
+  const [page,setPage] = useState(1);
+  const fetchMakeUp=(page)=>{
     try {
-      axios.get(`http://localhost:3001/makeup?_limit=6`).then((res)=>{
+      axios.get(`http://localhost:3001/makeup?_page=${page}&_limit=6`).then((res)=>{
+        setTotalPage(res.headers.get('x-total-count'));
         setMakeUp(res.data);
       })
     } catch (error) {
@@ -16,9 +20,9 @@ const MakeUp = () => {
   }
 
   useEffect(()=>{
-    fetchMakeUp();
-  },[])
-  console.log(makeUp)
+    fetchMakeUp(page);
+  },[page])
+  // console.log(makeUp)
   return (
     <>
     <Container maxW='container.xl' marginBottom='25px' marginTop='25px'>
@@ -50,6 +54,16 @@ const MakeUp = () => {
         <br></br>
         <br></br>
         <br></br>
+        {/* <Pagination 
+        current={page} 
+        total={totalPage} 
+        onChange={(value)=>setPage(value)} 
+        /> */}
+        <div>
+        <button style={{border:'1px solid teal',padding:'5px',borderRadius:'5px',marginRight:'10px'}} disabled={page===1} onClick={()=>setPage(page-1)}>Previous</button>
+        <button style={{border:'1px solid teal',padding:'5px',borderRadius:'5px',marginRight:'10px',width:'50px'}} disabled>{page}</button>
+        <button style={{border:'1px solid teal',padding:'5px',borderRadius:'5px',marginRight:'10px'}} onClick={()=>setPage(page+1)} disabled={page===Math.ceil(totalPage/6)}>Next</button>
+        </div>
     </Container>
     <Footer/>
     </>
