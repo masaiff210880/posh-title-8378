@@ -21,7 +21,7 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import { FiChevronDown } from 'react-icons/fi'
 import { MdLocalShipping } from 'react-icons/md';
-import { useParams } from 'react-router-dom';
+import { useParams , Link } from 'react-router-dom';
 import Footer from './Footer';
 export default function SingleProduct() {
   const { id }= useParams();
@@ -174,7 +174,7 @@ export default function SingleProduct() {
               </List>
             </Box>
           </Stack>
-
+          <Link to='/payment'>
           <Button
             rounded={'none'}
             w={'full'}
@@ -188,9 +188,9 @@ export default function SingleProduct() {
               transform: 'translateY(2px)',
               boxShadow: 'lg',
             }}>
-            Add to cart
+            Pay Now
           </Button>
-
+          </Link>
           <Stack direction="row" alignItems="center" justifyContent={'center'}>
             <MdLocalShipping />
             <Text>2-3 business days delivery</Text>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Flex, InputGroup, InputLeftElement, Input, Image,Modal,
   ModalOverlay,
   ModalContent,
@@ -12,11 +12,20 @@ import { Flex, InputGroup, InputLeftElement, Input, Image,Modal,
   ModalCloseButton, } from '@chakra-ui/react';
 import { SearchIcon } from '@chakra-ui/icons';
 import logo from '../images/logo.png'
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { HiOutlineShoppingBag } from 'react-icons/hi'
 import { HiOutlineUserCircle } from 'react-icons/hi'
 import Header from '../Components/Header';
 const Home = () => {
+  const [email,setEmail] = useState("");
+  const [password,setPassword] = useState("");
+  const handleLogin=(e)=>{
+    e.preventDefault();
+    if(email==='glamour@gamil.com' || password==='123'){
+      return <Navigate to='/' />
+    }
+  }
+  console.log(email,password)
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const initialRef = React.useRef(null)
@@ -56,23 +65,23 @@ const Home = () => {
               >
                 <ModalOverlay />
                 <ModalContent>
-                  <ModalHeader>Create your account</ModalHeader>
+                  <ModalHeader>Login</ModalHeader>
                   <ModalCloseButton />
                   <ModalBody pb={6}>
                     <FormControl>
-                      <FormLabel>First name</FormLabel>
-                      <Input ref={initialRef} placeholder='First name' />
+                      <FormLabel>Email address</FormLabel>
+                      <Input ref={initialRef} placeholder='yaml@gmail.com' type='email' value={email} onChange={(e)=>setEmail(e.target.value)} />
                     </FormControl>
 
                     <FormControl mt={4}>
-                      <FormLabel>Last name</FormLabel>
-                      <Input placeholder='Last name' />
+                      <FormLabel>Password</FormLabel>
+                      <Input placeholder='password' type='password' value={password} onChange={(e)=>setPassword(e.target.value)} />
                     </FormControl>
                   </ModalBody>
 
                   <ModalFooter>
-                    <Button colorScheme='blue' mr={3}>
-                      Save
+                    <Button colorScheme='blue' mr={3} onClick={handleLogin}>
+                      Login
                     </Button>
                     <Button onClick={onClose}>Cancel</Button>
                   </ModalFooter>
